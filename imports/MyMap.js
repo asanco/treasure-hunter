@@ -11,8 +11,10 @@ constructor() {
 
   handleMapOptions() {
     return {
-      center: new google.maps.LatLng(-37.8136, 144.9631),
-      zoom: 8,
+      center: new google.maps.LatLng(17.6078, 8.0817),
+      zoom: 2,
+      mapTypeId: google.maps.MapTypeId.HYBRID,
+      mapTypeControl: false
     };
   }
 
