@@ -1,8 +1,10 @@
-import React, { PropTypes } from 'react';
-import { render } from 'react-dom';
-import MyMap from '../imports/MyMap';
-import App from '../imports/App';
+import React from 'react'
+import { Meteor } from 'meteor/meteor'
+import { render } from 'react-dom'
 
-  Meteor.startup(() => {
-    render(<App />, document.getElementById('render-target'));
-  });
+import '../imports/startup/accounts-config.js'
+import App from '../imports/ui/App'
+
+Meteor.startup(() => {
+  render(<App />, document.getElementById('render-target'))
+})
