@@ -1,32 +1,48 @@
 import React, { Component } from 'react'
+import {Switch, Route} from 'react-router-dom'
+
 import { Meteor } from 'meteor/meteor'
 import { withTracker } from 'meteor/react-meteor-data'
 import { Hunts } from '../api/hunts.js'
 
-import AccountsUIWrapper from './AccountsUIWrapper.js'
-import HuntList from './HuntList'
-import MyMap from './MyMap'
-// import NavBar from './NavBar'
+import Navbar from './Navbar'
+import Error from './Error'
+
+import Home from './Home'
+import Design from './Design'
+
+import './App.css'
 
 class App extends Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      error: null
+    }
   }
 
   render () {
     return (
       <div>
-        <AccountsUIWrapper />
-        <h1>Treasure Hunter</h1>
-        <div className='col-sm-3'>
-          <HuntList hunts={this.props.hunts} />
-        </div>
-        <div className='col-sm-9'>
-          <MyMap />
-        </div>
+        <Navbar />
+        <main>
+          <Switch>
+            <Route exact path='/' render={(props) => <Home hunts={this.props.hunts} />} />
+            <Route path='/home' render={(props) => <Home hunts={this.props.hunts} />} />
+            <Route path='/design' render={(props) => <Design />} />
+          </Switch>
+        </main>
+        <Error error={this.state.error} onClose={this.closeErrorModal.bind(this)} />
       </div>
     )
+  }
+
+  errorModal (error) {
+    this.setState({error: error})
+  }
+
+  closeErrorModal () {
+    this.setState({error: null})
   }
 }
 

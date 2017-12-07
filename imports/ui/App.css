@@ -1,0 +1,52 @@
+/* https://color.adobe.com/create/color-wheel/?base=2&rule=Analogous&selected=0&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.34,0.3399999999999988,0.33466666666666667,0.8541183109687072,0.86,0.774,0.9435267833519382,0.95,0.9026754450324567,0.8423549329059065,0.86,0.774,0.9510290111235028,0.9777777777777777,0.88&swatchOrder=0,1,2,3,4 */
+
+.main {
+  padding-left:  3em;
+  padding-right: 3em;
+  padding-top: 2em;
+}
+
+.navbar {
+  font-size: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: #4CAF50;
+}
+
+.navbar-brand {
+  font-size: 1.6em;
+}
+
+.navbar, h1, h2, h3, h4, h5, h6 {
+  font-family: 'LA PRINCIPAL';
+}
+
+p, form {
+  font-family: 'LA DE LOS HADINGS';
+  font-size: 1.2em
+}
+
+.error-modal-container {
+  background-color: rgba(0,0,0,0.6);
+  bottom: 0;
+  left: 0;
+  padding: 5em;
+  right: 0;
+  top: 0;
+  position: fixed;
+}
+
+.error-modal {
+  background-color: #fff;
+  border-radius: 0.8em;
+  margin: 0 auto;
+  max-height: 300px;
+  max-width:  500px;
+  padding: 2em;
+}
+
+.map-container {
+  width: 800px;
+  max-width: 100%;
+  height: 500px;
+}

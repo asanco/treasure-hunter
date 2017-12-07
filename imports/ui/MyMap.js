@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Session } from 'meteor/session'
 import GoogleMap from './GoogleMap'
-import Markers from './markers'
+import Markers from './../api/markers'
 
 class MyMap extends Component {
   constructor () {
