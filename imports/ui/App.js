@@ -10,6 +10,8 @@ import Error from './Error'
 
 import Home from './Home'
 import Design from './Design'
+import Welcome from './Welcome'
+import Difficulty from './Difficulty'
 
 import './App.css'
 
@@ -30,6 +32,8 @@ class App extends Component {
             <Route exact path='/' render={(props) => <Home hunts={this.props.hunts} />} />
             <Route path='/home' render={(props) => <Home hunts={this.props.hunts} />} />
             <Route path='/design' render={(props) => <Design />} />
+            <Route path='/welcome' render={(props) => <Welcome />} />
+            <Route path='/difficulty' render={(props) => <Difficulty />} />
           </Switch>
         </main>
         <Error error={this.state.error} onClose={this.closeErrorModal.bind(this)} />
