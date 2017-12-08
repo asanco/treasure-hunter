@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor'
 import { withTracker } from 'meteor/react-meteor-data'
 import { Hunts } from '../api/hunts.js'
 
-import Navbar from './Navbar'
+import NavBar from './NavBar'
 import Error from './Error'
 
 import Home from './Home'
@@ -24,7 +24,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Navbar />
+        <NavBar />
         <main>
           <Switch>
             <Route exact path='/' render={(props) => <Home hunts={this.props.hunts} />} />

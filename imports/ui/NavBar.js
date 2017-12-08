@@ -1,9 +1,10 @@
 
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-class Navbar extends Component {
+class NavBar extends Component {
   render () {
     return (
+      <div >
       <nav className='navbar sticky-top navbar-dark navbar navbar-expand-lg'>
         <a className='navbar-brand' href='#home'>T.H.</a>
         <ul className='navbar-nav'>
@@ -15,8 +16,9 @@ class Navbar extends Component {
           <li className='nav-item'><a className='nav-link' href='#login'>Login</a></li>
         </ul>
       </nav>
+      </div>
     )
   }
 }
 
-export default Navbar
+export default NavBar
