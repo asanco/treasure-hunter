@@ -1,4 +1,7 @@
 /* https://color.adobe.com/create/color-wheel/?base=2&rule=Analogous&selected=0&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.34,0.3399999999999988,0.33466666666666667,0.8541183109687072,0.86,0.774,0.9435267833519382,0.95,0.9026754450324567,0.8423549329059065,0.86,0.774,0.9510290111235028,0.9777777777777777,0.88&swatchOrder=0,1,2,3,4 */
+body{
+  background-color: #f2f2f2;
+}
 
 .main {
   padding-left:  3em;
@@ -10,7 +13,7 @@
   font-size: 1.5em;
   padding-left: 2em;
   padding-right: 2em;
-  background-color: #4CAF50;
+  background-color: #70ca79;
 }
 
 .navbar-brand {
@@ -18,11 +21,11 @@
 }
 
 .navbar, h1, h2, h3, h4, h5, h6 {
-  font-family: 'LA PRINCIPAL';
+  font-family: 'Roboto';
 }
 
 p, form {
-  font-family: 'LA DE LOS HADINGS';
+  font-family: 'Roboto';
   font-size: 1.2em
 }
 
