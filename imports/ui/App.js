@@ -4,6 +4,7 @@ import {Switch, Route} from 'react-router-dom'
 import { Meteor } from 'meteor/meteor'
 import { withTracker } from 'meteor/react-meteor-data'
 import { Hunts } from '../api/hunts.js'
+import { Huntings } from '../api/huntings.js'
 
 import NavBar from './NavBar'
 import Error from './Error'
@@ -21,7 +22,8 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      error: null
+      error: null,
+      hunting: null
     }
   }
 
@@ -32,16 +34,40 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path='/' render={(props) => <Home />} />
-            <Route path='/hunts' render={(props) => <Huntss hunts={this.props.hunts} />} />
+            <Route path='/hunts' render={(props) => <Huntss hunts={this.props.hunts} {...props} newHunting={this.newHunting.bind(this)} />} />
             <Route path='/hunters' render={(props) => <Hunters />} />
             <Route path='/create' render={(props) => <Create />} />
-            <Route path='/hunting' render={(props) => <Hunting />} />
+            <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} />} />
             <Route path='/difficulty' render={(props) => <Difficulty />} />
           </Switch>
         </main>
         <Error error={this.state.error} onClose={this.closeErrorModal.bind(this)} />
       </div>
     )
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.state.hunting) {
+      let hunting = nextProps.huntings.filter(hunting => {
+        return hunting._id === this.state.hunting._id
+      })[0]
+      this.setState({
+        hunting: hunting
+      })
+    }
+  }
+
+  newHunting (huntId) {
+    Meteor.call('hunting.newHunting', huntId, (err, huntingId) => {
+      if (err) this.setState({errorMessage: err.message})
+      else {
+        this.setState({
+          hunting: {
+            _id: huntingId
+          }
+        })
+      }
+    })
   }
 
   errorModal (error) {
@@ -55,9 +81,11 @@ class App extends Component {
 
 export default withTracker(() => {
   Meteor.subscribe('hunts')
+  Meteor.subscribe('huntings')
 
   return {
     user: Meteor.user(),
-    hunts: Hunts.find({}).fetch()
+    hunts: Hunts.find({}).fetch(),
+    huntings: Huntings.find({}).fetch()
   }
 })(App)

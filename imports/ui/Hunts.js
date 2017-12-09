@@ -4,7 +4,13 @@ import Hunt from './Hunt'
 class HuntList extends Component {
   renderHunts () {
     return this.props.hunts.map(hunt => {
-      return (<Hunt key={hunt._id} hunt={hunt} goToHunt={this.props.goToHunt} />)
+      return (
+        <Hunt
+          key={hunt._id}
+          hunt={hunt}
+          startHunting={this.props.newHunting(hunt._id)}
+          />
+      )
     })
   }
 
