@@ -11,13 +11,16 @@ class Design extends Component {
       name: '',
       message1: '',
       hint1: '',
-      location1: '',
+      lat1: '',
+      lnt1: '',
       message2: '',
       hint2: '',
-      location2:'',
+      lat2:'',
+      lnt2: '',
       message3: '',
       hint3: '',
-      location3: '',
+      lat3: '',
+      lnt3: '',
       difficulty: 'medium'
     }
 
@@ -76,12 +79,12 @@ class Design extends Component {
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
                 <div className='col-sm-10'>
                     <Autocomplete
-                    style={{width: '90%'}}
+                    style={{width: '100%'}}
                     onPlaceSelected={(place) => {
                       console.log(place);
+                      this.setState({lat1:place.geometry.location.lat(), lnt1:place.geometry.location.lng()})
                     }}
-                    types={['(regions)']}
-                    componentRestrictions={{country: "ru"}}
+
                     />
                 </div>
               </div>
@@ -106,9 +109,10 @@ class Design extends Component {
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
                 <div className='col-sm-10'>
                     <Autocomplete
-                    style={{width: '90%'}}
+                    style={{width: '100%'}}
                     onPlaceSelected={(place) => {
                       console.log(place);
+                      this.setState({lat2:place.geometry.location.lat(), lnt2:place.geometry.location.lng()})
                     }}
                     />
                 </div>
@@ -134,10 +138,13 @@ class Design extends Component {
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
                 <div className='col-sm-10'>
                     <Autocomplete
-                    style={{width: '90%'}}
+                    style={{width: '100%'}}
                     onPlaceSelected={(place) => {
-                      console.log(place);
+                      console.log(place.geometry.location.lat());
+                      this.setState({lat3:place.geometry.location.lat(), lnt3:place.geometry.location.lng()})
+                      console.log(this.state.lat3)
                     }}
+
                     />
                 </div>
               </div>
@@ -173,7 +180,7 @@ class Design extends Component {
         message: this.state.message3,
         hint: this.state.hint3
       }
-    }
+      }
     if (this.props.createHunt(hunt)) this.props.history.push('hunts')
   }
 }
