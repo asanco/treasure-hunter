@@ -7,7 +7,15 @@ class Home extends Component {
     return (
       <div>
         <h1>Hunting</h1>
-        <MyMap />
+        <div className='row'>
+           <div className='col-lg-7 col-md-7 col-sm-12 col-xs-12'>
+            <MyMap />
+          </div>
+          <div className='col-lg-5 col-md-5 col-sm-12 col-xs-12 gamePanel'>
+            <GamePanel />
+          </div>
+        </div>
+
       </div>
     )
   }
