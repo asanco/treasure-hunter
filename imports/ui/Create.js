@@ -140,7 +140,7 @@ class Design extends Component {
                     <Autocomplete
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
-                      console.log(place.geometry.location.lat());
+                      console.log(place);
                       this.setState({lat3:place.geometry.location.lat(), lnt3:place.geometry.location.lng()})
                       console.log(this.state.lat3)
                     }}
@@ -170,15 +170,21 @@ class Design extends Component {
       difficulty: this.state.difficulty,
       clue1: {
         message: this.state.message1,
-        hint: this.state.hint1
+        hint: this.state.hint1,
+        lat: this.state.lat1,
+        lng: this.state.lng1
       },
       clue2: {
         message: this.state.message2,
-        hint: this.state.hint2
+        hint: this.state.hint2,
+        lat: this.state.lat2,
+        lng: this.state.lng2
       },
       clue3: {
         message: this.state.message3,
-        hint: this.state.hint3
+        hint: this.state.hint3,
+        lat: this.state.lat3,
+        lng: this.state.lng3
       }
       }
     if (this.props.createHunt(hunt)) this.props.history.push('hunts')
