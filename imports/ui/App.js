@@ -36,7 +36,7 @@ class App extends Component {
             <Route exact path='/' render={(props) => <Home />} />
             <Route path='/hunts' render={(props) => <Huntss hunts={this.props.hunts} {...props} newHunting={this.newHunting.bind(this)} />} />
             <Route path='/hunters' render={(props) => <Hunters />} />
-            <Route path='/create' render={(props) => <Create />} />
+            <Route path='/create' render={(props) => <Create createHunt={this.newHunt.bind(this)} {...props} />} />
             <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} />} />
             <Route path='/difficulty' render={(props) => <Difficulty />} />
           </Switch>
@@ -55,6 +55,16 @@ class App extends Component {
         hunting: hunting
       })
     }
+  }
+
+  newHunt (hunt) {
+    console.log('SE ESTA LLAMANDO MALDITA SEA')
+    Meteor.call('hunts.newHunt', hunt, (err) => {
+      if (err) {
+        this.setState({errorMessage: err.message})
+        return false
+      } else return true
+    })
   }
 
   newHunting (huntId) {
