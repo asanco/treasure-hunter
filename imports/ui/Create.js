@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
+import MyMap from './MyMap'
+import Autocomplete from 'react-google-autocomplete'
 
 class Design extends Component {
+
+
   constructor (props) {
     super(props)
     this.state = {
       name: '',
       message1: '',
       hint1: '',
+      location1: '',
       message2: '',
       hint2: '',
+      location2:'',
       message3: '',
       hint3: '',
+      location3: '',
       difficulty: 'medium'
     }
 
@@ -19,8 +26,13 @@ class Design extends Component {
   }
 
   render () {
+
+
+
     return (
+
       <div>
+
         <h1>Create a Hunt</h1>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group row'>
@@ -59,6 +71,20 @@ class Design extends Component {
                   <input required type='text' className='form-control' name='hint1' id='name' value={this.state.hint1} onChange={this.handleInputChange} />
                 </div>
               </div>
+
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
+                <div className='col-sm-10'>
+                    <Autocomplete
+                    style={{width: '90%'}}
+                    onPlaceSelected={(place) => {
+                      console.log(place);
+                    }}
+                    types={['(regions)']}
+                    componentRestrictions={{country: "ru"}}
+                    />
+                </div>
+              </div>
             </div>
           </div>
           <div className='form-group row'>
@@ -76,6 +102,17 @@ class Design extends Component {
                   <input required type='text' className='form-control' name='hint2' id='name' value={this.state.hint2} onChange={this.handleInputChange} />
                 </div>
               </div>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
+                <div className='col-sm-10'>
+                    <Autocomplete
+                    style={{width: '90%'}}
+                    onPlaceSelected={(place) => {
+                      console.log(place);
+                    }}
+                    />
+                </div>
+              </div>
             </div>
           </div>
           <div className='form-group row'>
@@ -91,6 +128,17 @@ class Design extends Component {
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Hint</label>
                 <div className='col-sm-10'>
                   <input required type='text' className='form-control' name='hint3' id='name' value={this.state.hint3} onChange={this.handleInputChange} />
+                </div>
+              </div>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
+                <div className='col-sm-10'>
+                    <Autocomplete
+                    style={{width: '90%'}}
+                    onPlaceSelected={(place) => {
+                      console.log(place);
+                    }}
+                    />
                 </div>
               </div>
             </div>
