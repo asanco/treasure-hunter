@@ -3,6 +3,13 @@ import { Meteor } from 'meteor/meteor'
 
 export const Hunts = new Mongo.Collection('hunts')
 
+function generateRandomCoordinates () {
+  return {
+    lat: (Math.random() * (85 - (-85)) + (-85)).toFixed(10) * 1,
+    lng: (Math.random() * (180 - (-180)) + (-180)).toFixed(10) * 1
+  }
+}
+
 if (Meteor.isServer) {
   Meteor.publish('hunts', function huntsPublication () {
     return Hunts.find()
@@ -24,6 +31,12 @@ Meteor.methods({
       name: hunt.name
     })
     if (existent) throw new Meteor.Error('A hunt with that name already exists')
+    let i = 97
+    let dummys = []
+    while (i !== 0) {
+      dummys.push(generateRandomCoordinates())
+      i--
+    }
     return Hunts.insert({
       name: hunt.name,
       creator: {
@@ -34,6 +47,7 @@ Meteor.methods({
       clue1: hunt.clue1,
       clue2: hunt.clue2,
       clue3: hunt.clue3,
+      dummys: dummys,
       ratings: []
     })
   }

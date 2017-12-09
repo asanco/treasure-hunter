@@ -87,6 +87,7 @@ class App extends Component {
         )
         cb(err)
       } else {
+        console.log(huntingId)
         this.setState({
           hunting: {
             _id: huntingId
