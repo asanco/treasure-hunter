@@ -20,7 +20,8 @@ Meteor.methods({
       name: name,
       creator: {
         username: Meteor.user().username,
-        _id: Meteor.user()._id
+        _id: Meteor.user()._id,
+        ratings: []
       }
     })
   }

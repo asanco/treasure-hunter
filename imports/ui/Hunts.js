@@ -8,8 +8,9 @@ class HuntList extends Component {
         <Hunt
           key={hunt._id}
           hunt={hunt}
-          startHunting={this.props.newHunting(hunt._id)}
-          />
+          startHunting={this.props.newHunting}
+          history={this.props.history}
+        />
       )
     })
   }

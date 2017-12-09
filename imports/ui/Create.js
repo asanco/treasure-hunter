@@ -4,7 +4,13 @@ class Design extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: ''
+      name: '',
+      message1: '',
+      hint1: '',
+      message2: '',
+      hint2: '',
+      message3: '',
+      hint3: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -15,25 +21,6 @@ class Design extends Component {
     return (
       <div>
         <h1>Create a Hunt</h1>
-
-        <div>
-          <h2>Difficulty:</h2>
-          <div className='row'>
-            <div className='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
-              <a href='#home'><img height='64' width='64' alt='Easy difficulty' src='../../starfish.png' /></a>
-              <h3>Easy</h3>
-            </div>
-            <div className='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
-              <a href='#home'><img height='64' width='64' alt='Medium difficulty' src='../../pirate-1.png' /></a>
-              <h3>Medium</h3>
-            </div>
-            <div className='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
-              <a href='#home'><img height='64' width='64' alt='Hard difficulty' src='../../octopus.png' /></a>
-              <h3>Hard</h3>
-            </div>
-          </div>
-        </div>
-
         <form onSubmit={this.handleSubmit}>
           <div className='form-group row'>
             <label htmlFor='name' className='col-sm-2 col-form-label'>Name</label>
@@ -42,18 +29,33 @@ class Design extends Component {
             </div>
           </div>
           <div className='form-group row'>
+            <label htmlFor='name' className='col-sm-2 col-form-label'>Dificulty</label>
+            <div className='col-sm-3 form-check form-check-inline'>
+              <input className='form-check-input' type='radio' name='difficulty' value='easy' onChange={this.handleInputChange} checked={this.state.difficulty === 'easy'} />Easy
+              <img height='64' width='64' alt='Easy difficulty' src='../../starfish.png' />
+            </div>
+            <div className='col-sm-3 form-check form-check-inline'>
+              <input className='form-check-input' type='radio' name='difficulty' value='medium' onChange={this.handleInputChange} checked={this.state.difficulty === 'medium'} />Medium
+              <img height='64' width='64' alt='Medium difficulty' src='../../pirate-1.png' />
+            </div>
+            <div className='col-sm-3 form-check form-check-inline'>
+              <input className='form-check-input' type='radio' name='difficulty' value='hard' onChange={this.handleInputChange} checked={this.state.difficulty === 'hard'} />Easy
+              <img height='64' width='64' alt='Hard difficulty' src='../../octopus.png' />
+            </div>
+          </div>
+          <div className='form-group row'>
             <label className='col-sm-2 col-form-label'>Clue 1</label>
             <div className='col-sm-10'>
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
-                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                  <input type='text' className='form-control' name='message1' id='name' value={this.state.message1} onChange={this.handleInputChange} />
                 </div>
               </div>
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Hint</label>
                 <div className='col-sm-10'>
-                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                  <input type='text' className='form-control' name='hint1' id='name' value={this.state.hint1} onChange={this.handleInputChange} />
                 </div>
               </div>
             </div>
@@ -64,13 +66,13 @@ class Design extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
-                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                  <input type='text' className='form-control' name='message2' id='name' value={this.state.message2} onChange={this.handleInputChange} />
                 </div>
               </div>
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Hint</label>
                 <div className='col-sm-10'>
-                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                  <input type='text' className='form-control' name='hint2' id='name' value={this.state.hint2} onChange={this.handleInputChange} />
                 </div>
               </div>
             </div>
@@ -81,13 +83,13 @@ class Design extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
-                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                  <input type='text' className='form-control' name='message3' id='name' value={this.state.message3} onChange={this.handleInputChange} />
                 </div>
               </div>
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Hint</label>
                 <div className='col-sm-10'>
-                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                  <input type='text' className='form-control' name='hint3' id='name' value={this.state.hint3} onChange={this.handleInputChange} />
                 </div>
               </div>
             </div>
