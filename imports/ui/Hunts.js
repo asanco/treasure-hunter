@@ -4,15 +4,19 @@ import Hunt from './Hunt'
 class HuntList extends Component {
   renderHunts () {
     return this.props.hunts.map(hunt => {
-      return (<Hunt key={hunt._id} hunt={hunt} goToHunt={this.props.goToHunt} />)
+      return (
+        <div className='col-sm-4' key={hunt._id}>
+          <Hunt hunt={hunt} goToHunt={this.props.goToHunt} />
+        </div>
+      )
     })
   }
 
   render () {
     return (
       <div>
-        <h2>Hunts</h2>
-        <div>
+        <h1>Hunts</h1>
+        <div className='row' >
           {this.renderHunts()}
         </div>
       </div>
