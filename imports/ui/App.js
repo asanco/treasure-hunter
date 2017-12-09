@@ -31,12 +31,12 @@ class App extends Component {
         <NavBar user={this.props.user} />
         <main>
           <Switch>
-          <Route exact path='/' render={(props) => <Home />} />
-          <Route path='/hunts' render={(props) => <Huntss hunts={this.props.hunts} />} />
-          <Route path='/hunters' render={(props) => <Hunters />} />
-          <Route path='/create' render={(props) => <Create />} />
-          <Route path='/hunting' render={(props) => <Hunting />} />
-          <Route path='/difficulty' render={(props) => <Difficulty />} />
+            <Route exact path='/' render={(props) => <Home />} />
+            <Route path='/hunts' render={(props) => <Huntss hunts={this.props.hunts} />} />
+            <Route path='/hunters' render={(props) => <Hunters />} />
+            <Route path='/create' render={(props) => <Create />} />
+            <Route path='/hunting' render={(props) => <Hunting />} />
+            <Route path='/difficulty' render={(props) => <Difficulty />} />
           </Switch>
         </main>
         <Error error={this.state.error} onClose={this.closeErrorModal.bind(this)} />
@@ -57,6 +57,7 @@ export default withTracker(() => {
   Meteor.subscribe('hunts')
 
   return {
+    user: Meteor.user(),
     hunts: Hunts.find({}).fetch()
   }
 })(App)

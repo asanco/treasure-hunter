@@ -42,6 +42,57 @@ class Design extends Component {
             </div>
           </div>
           <div className='form-group row'>
+            <label className='col-sm-2 col-form-label'>Clue 1</label>
+            <div className='col-sm-10'>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
+                <div className='col-sm-10'>
+                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                </div>
+              </div>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Hint</label>
+                <div className='col-sm-10'>
+                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='form-group row'>
+            <label className='col-sm-2 col-form-label'>Clue 2</label>
+            <div className='col-sm-10'>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
+                <div className='col-sm-10'>
+                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                </div>
+              </div>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Hint</label>
+                <div className='col-sm-10'>
+                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='form-group row'>
+            <label className='col-sm-2 col-form-label'>Clue 3</label>
+            <div className='col-sm-10'>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
+                <div className='col-sm-10'>
+                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                </div>
+              </div>
+              <div className='form-group row'>
+                <label htmlFor='name' className='col-sm-2 col-form-label'>Hint</label>
+                <div className='col-sm-10'>
+                  <input type='text' className='form-control' name='name' id='name' value={this.state.name} onChange={this.handleInputChange} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='form-group row'>
             <button type='submit' className='btn btn-secondary'>Create</button>
           </div>
         </form>
