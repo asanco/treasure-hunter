@@ -12,15 +12,15 @@ class Design extends Component {
       message1: '',
       hint1: '',
       lat1: '',
-      lnt1: '',
+      lng1: '',
       message2: '',
       hint2: '',
       lat2:'',
-      lnt2: '',
+      lng2: '',
       message3: '',
       hint3: '',
       lat3: '',
-      lnt3: '',
+      lng3: '',
       difficulty: 'medium'
     }
 
@@ -82,7 +82,7 @@ class Design extends Component {
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
                       console.log(place);
-                      this.setState({lat1:place.geometry.location.lat(), lnt1:place.geometry.location.lng()})
+                      this.setState({lat1:place.geometry.location.lat(), lng1:place.geometry.location.lng()})
                     }}
 
                     />
@@ -112,7 +112,7 @@ class Design extends Component {
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
                       console.log(place);
-                      this.setState({lat2:place.geometry.location.lat(), lnt2:place.geometry.location.lng()})
+                      this.setState({lat2:place.geometry.location.lat(), lng2:place.geometry.location.lng()})
                     }}
                     />
                 </div>
@@ -141,7 +141,7 @@ class Design extends Component {
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
                       console.log(place);
-                      this.setState({lat3:place.geometry.location.lat(), lnt3:place.geometry.location.lng()})
+                      this.setState({lat3:place.geometry.location.lat(), lng3:place.geometry.location.lng()})
                       console.log(this.state.lat3)
                     }}
 
