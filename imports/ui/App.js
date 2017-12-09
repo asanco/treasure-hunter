@@ -9,11 +9,8 @@ import NavBar from './NavBar'
 import Error from './Error'
 
 import Home from './Home'
-import Hunters from './Hunters'
-import Huntss from './Hunts'
-import Create from './Create'
-import Hunting from './Hunting'
-
+import Design from './Design'
+import Welcome from './Welcome'
 import Difficulty from './Difficulty'
 
 import './App.css'
@@ -29,15 +26,13 @@ class App extends Component {
   render () {
     return (
       <div>
-        <NavBar user={this.props.user} />
+        <NavBar />
         <main>
           <Switch>
-            <Route exact path='/' render={(props) => <Home />} />
-            <Route path='/hunts' render={(props) => <Huntss hunts={this.props.hunts} />} />
-            <Route path='/hunters' render={(props) => <Hunters />} />
-            <Route path='/create' render={(props) => <Create />} />
-            <Route path='/hunting' render={(props) => <Hunting />} />
-
+            <Route exact path='/' render={(props) => <Home hunts={this.props.hunts} />} />
+            <Route path='/home' render={(props) => <Home hunts={this.props.hunts} />} />
+            <Route path='/design' render={(props) => <Design />} />
+            <Route path='/welcome' render={(props) => <Welcome />} />
             <Route path='/difficulty' render={(props) => <Difficulty />} />
           </Switch>
         </main>
@@ -59,7 +54,6 @@ export default withTracker(() => {
   Meteor.subscribe('hunts')
 
   return {
-    user: Meteor.user(),
     hunts: Hunts.find({}).fetch()
   }
 })(App)
