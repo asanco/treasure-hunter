@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import MyMap from './MyMap'
 import Autocomplete from 'react-google-autocomplete'
 
 class Design extends Component {
-
-
   constructor (props) {
     super(props)
     this.state = {
@@ -15,7 +12,7 @@ class Design extends Component {
       lng1: '',
       message2: '',
       hint2: '',
-      lat2:'',
+      lat2: '',
       lng2: '',
       message3: '',
       hint3: '',
@@ -29,13 +26,8 @@ class Design extends Component {
   }
 
   render () {
-
-
-
     return (
-
       <div>
-
         <h1>Create a Hunt</h1>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group row'>
@@ -78,14 +70,12 @@ class Design extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
                 <div className='col-sm-10'>
-                    <Autocomplete
+                  <Autocomplete
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
-                      console.log(place);
-                      this.setState({lat1:place.geometry.location.lat(), lng1:place.geometry.location.lng()})
+                      this.setState({lat1: place.geometry.location.lat(), lng1: place.geometry.location.lng()})
                     }}
-
-                    />
+                  />
                 </div>
               </div>
             </div>
@@ -108,13 +98,12 @@ class Design extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
                 <div className='col-sm-10'>
-                    <Autocomplete
+                  <Autocomplete
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
-                      console.log(place);
-                      this.setState({lat2:place.geometry.location.lat(), lng2:place.geometry.location.lng()})
+                      this.setState({lat2: place.geometry.location.lat(), lng2: place.geometry.location.lng()})
                     }}
-                    />
+                  />
                 </div>
               </div>
             </div>
@@ -137,15 +126,12 @@ class Design extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
                 <div className='col-sm-10'>
-                    <Autocomplete
+                  <Autocomplete
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
-                      console.log(place);
-                      this.setState({lat3:place.geometry.location.lat(), lng3:place.geometry.location.lng()})
-                      console.log(this.state.lat3)
+                      this.setState({lat3: place.geometry.location.lat(), lng3: place.geometry.location.lng()})
                     }}
-
-                    />
+                  />
                 </div>
               </div>
             </div>
@@ -186,8 +172,10 @@ class Design extends Component {
         lat: this.state.lat3,
         lng: this.state.lng3
       }
-      }
-    if (this.props.createHunt(hunt)) this.props.history.push('hunts')
+    }
+    this.props.createHunt(hunt, (err) => {
+      if (!err) this.props.history.push('hunts')
+    })
   }
 }
 

@@ -10,6 +10,7 @@ class HuntList extends Component {
           hunt={hunt}
           startHunting={this.props.newHunting}
           history={this.props.history}
+          user={this.props.user}
         />
       )
     })
@@ -18,8 +19,8 @@ class HuntList extends Component {
   render () {
     return (
       <div>
-        <h2>Hunts</h2>
-        <div>
+        <h1>Hunts</h1>
+        <div className='row'>
           {this.renderHunts()}
         </div>
       </div>

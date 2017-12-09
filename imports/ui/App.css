@@ -29,25 +29,6 @@ p, form {
   font-size: 1.2em
 }
 
-.error-modal-container {
-  background-color: rgba(0,0,0,0.6);
-  bottom: 0;
-  left: 0;
-  padding: 5em;
-  right: 0;
-  top: 0;
-  position: fixed;
-}
-
-.error-modal {
-  background-color: #fff;
-  border-radius: 0.8em;
-  margin: 0 auto;
-  max-height: 300px;
-  max-width:  500px;
-  padding: 2em;
-}
-
 .map-container {
   width: 800px;
   max-width: 100%;

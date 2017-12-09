@@ -16,7 +16,7 @@ if (Meteor.isServer) {
 
 Meteor.methods({
   'huntings.newHunting' (huntId) {
-    if (!Meteor.user()._id) throw new Meteor.Error('You are not authorized')
+    if (!Meteor.user()) throw new Meteor.Error('You are not authorized')
     else {
       let hunt = Hunts.findOne({
         _id: huntId
@@ -28,7 +28,7 @@ Meteor.methods({
         huntId: huntId
       })
       if (hunting) throw new Meteor.Error('Hunting already started')
-      Huntings.insert({
+      return Huntings.insert({
         userId: Meteor.user()._id,
         huntId: huntId
       })
