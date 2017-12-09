@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import AccountsUIWrapper from './AccountsUIWrapper.js'
 import HuntList from './HuntList'
 import MyMap from './MyMap'
@@ -30,6 +31,12 @@ class Welcome extends Component {
   render () {
     return (
       <div>
+=======
+class Welcome extends Component {
+  render () {
+    return (
+      <div>
+>>>>>>> 8c79e3ebb64b3b45b7fb7e6b577c3781beb65d71
         <h1>Treasure Hunter</h1>
         <div className='col-sm-12' >
           <h2> Welcome to treasure hunter, the game where you navigate across the (digital) world to find hidden clues and treasure!</h2>
@@ -55,6 +62,9 @@ class Welcome extends Component {
         <div className='col-sm-12' >
           <h2>Enjoy this masterpiece, we were forced to develop it instead of spending quality december time with our loved ones!</h2>
         </div>
+<<<<<<< HEAD
+>>>>>>> 8c79e3ebb64b3b45b7fb7e6b577c3781beb65d71
+=======
 >>>>>>> 8c79e3ebb64b3b45b7fb7e6b577c3781beb65d71
       </div>
     )
