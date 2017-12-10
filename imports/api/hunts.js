@@ -3,13 +3,6 @@ import { Meteor } from 'meteor/meteor'
 
 export const Hunts = new Mongo.Collection('hunts')
 
-function generateRandomCoordinates () {
-  return {
-    lat: (Math.random() * (85 - (-85)) + (-85)).toFixed(10) * 1,
-    lng: (Math.random() * (180 - (-180)) + (-180)).toFixed(10) * 1
-  }
-}
-
 if (Meteor.isServer) {
   Meteor.publish('hunts', function huntsPublication () {
     return Hunts.find()
@@ -32,12 +25,15 @@ Meteor.methods({
       name: hunt.name
     })
     if (existent) throw new Meteor.Error('A hunt with that name already exists')
-    let i = 97
-    let dummys = []
-    while (i !== 0) {
-      dummys.push(generateRandomCoordinates())
-      i--
-    }
+    let difficultyRange = hunt.difficulty === 'easy' ? 10 : hunt.difficulty === 'medium' ? 20 : 30
+    hunt.clues.forEach(clue => {
+      let hints = []
+      hints.push({lat: clue.lat + (Math.random() * (difficultyRange - (0)) + (-0)), lng: clue.lng + (Math.random() * (difficultyRange - (0)) + (-0))})
+      hints.push({lat: clue.lat + (Math.random() * (difficultyRange - (0)) + (-0)), lng: clue.lng - (Math.random() * (difficultyRange - (0)) + (-0))})
+      hints.push({lat: clue.lat - (Math.random() * (difficultyRange - (0)) + (-0)), lng: clue.lng - (Math.random() * (difficultyRange - (0)) + (-0))})
+      hints.push({lat: clue.lat - (Math.random() * (difficultyRange - (0)) + (-0)), lng: clue.lng + (Math.random() * (difficultyRange - (0)) + (-0))})
+      clue.hints = hints
+    })
     return Hunts.insert({
       name: hunt.name,
       creator: {
@@ -45,8 +41,7 @@ Meteor.methods({
         _id: Meteor.user()._id
       },
       difficulty: hunt.difficulty,
-      clues: hunt.clues,
-      dummys: dummys
+      clues: hunt.clues
     })
   }
 })

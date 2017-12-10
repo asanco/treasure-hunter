@@ -78,6 +78,7 @@ Meteor.methods({
     else clueNumber = 2
     if (hunting.clues[clueNumber].hint) throw new Meteor.Error('Hint already asked')
     hunting.clues[clueNumber].hint = hunt.clues[clueNumber].hint
+    hunting.clues[clueNumber].hints = hunt.clues[clueNumber].hints
     hunting.score = hunting.score - 20
     return Huntings.update(hunting._id, hunting)
   }

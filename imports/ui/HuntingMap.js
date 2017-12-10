@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Map, Marker, GoogleApiWrapper} from 'google-maps-react'
+import {Map, Marker, Polygon, GoogleApiWrapper} from 'google-maps-react'
 
 export class HuntingMap extends Component {
   constructor (props) {
@@ -17,7 +17,25 @@ export class HuntingMap extends Component {
     this.props.selectClue(coordinates)
   }
 
-  renderChoices () {
+  renderHints () {
+    return this.props.hunting.clues.map((clue, i) => {
+      if (clue.hint) {
+        return (
+          <Polygon
+            key={i}
+            paths={clue.hints}
+            strokeColor='#0000FF'
+            strokeOpacity={0.8}
+            strokeWeight={2}
+            fillColor='#0000FF'
+            fillOpacity={0.35}
+          />
+        )
+      }
+    })
+  }
+
+  renderClues () {
     return this.props.hunting.clues.map((clue, i) => {
       if (clue.done) {
         return (
@@ -47,7 +65,8 @@ export class HuntingMap extends Component {
             name={'Selected'}
           />
         }
-        {this.renderChoices()}
+        {this.renderClues()}
+        {this.renderHints()}
       </Map>
     )
   }
