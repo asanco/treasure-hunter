@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Autocomplete from 'react-google-autocomplete'
 
-class Design extends Component {
+class Create extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -169,8 +169,7 @@ class Design extends Component {
         hint: this.state.hint3,
         lat: this.state.lat3,
         lng: this.state.lng3
-      }
-      ]
+      }]
     }
     this.props.createHunt(hunt, (err) => {
       if (!err) this.props.history.push('hunts')
@@ -178,4 +177,4 @@ class Design extends Component {
   }
 }
 
-export default Design
+export default Create

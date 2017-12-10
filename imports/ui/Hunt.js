@@ -22,9 +22,9 @@ class Hunt extends Component {
         <h2>{this.props.hunt.name}</h2>
         <h3>By: {this.props.hunt.creator.username}</h3>
         <div>
-          {this.props.difficulty === 'easy'
+          {this.props.hunt.difficulty === 'easy'
             ? <img height='64' width='64' alt='Easy difficulty' src='../../starfish.png' />
-            : this.props.difficulty === 'medium'
+            : this.props.hunt.difficulty === 'medium'
             ? <img height='64' width='64' alt='Medium difficulty' src='../../pirate-1.png' />
             : <img height='64' width='64' alt='Hard difficulty' src='../../octopus.png' />
           }

@@ -14,7 +14,7 @@ import NavBar from './NavBar'
 import Home from './Home'
 import Hunters from './Hunters'
 import Huntss from './Hunts'
-import Create from './Create'
+import CreateHunt from './CreateHunt'
 import Hunting from './Hunting'
 
 import './App.css'
@@ -37,8 +37,8 @@ class App extends Component {
             <Route exact path='/' render={(props) => <Home />} />
             <Route path='/hunts' render={(props) => <Huntss user={this.props.user} hunts={this.props.hunts} newHunting={this.newHunting.bind(this)} {...props} />} />
             <Route path='/hunters' render={(props) => <Hunters />} />
-            <Route path='/create' render={(props) => <Create createHunt={this.newHunt.bind(this)} {...props} />} />
-            <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} />} />
+            <Route path='/create' render={(props) => <CreateHunt createHunt={this.newHunt.bind(this)} {...props} />} />
+            <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} hintAsk={this.hintAsk.bind(this)} clueTry={this.clueTry.bind(this)} />} />
           </Switch>
         </main>
       </div>
@@ -92,6 +92,36 @@ class App extends Component {
           }
         })
         cb(null)
+      }
+    })
+  }
+
+  hintAsk () {
+    Meteor.call('huntings.hintAsk', this.state.hunting._id, (err) => {
+      if (err) {
+        swal(
+          'Aargh!',
+          err.error,
+          'error'
+        )
+      }
+    })
+  }
+
+  clueTry (coordinates) {
+    Meteor.call('huntings.clueTry', this.state.hunting._id, coordinates, (err) => {
+      if (err) {
+        swal(
+          'Aargh!',
+          err.error,
+          'error'
+        )
+      } else {
+        swal(
+          'Yo Ho Ho',
+          'Good Answer Pal',
+          'success'
+        )
       }
     })
   }

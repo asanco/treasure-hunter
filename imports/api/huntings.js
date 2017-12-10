@@ -48,9 +48,27 @@ Meteor.methods({
       })
     }
   },
-  'huntings.try' (huntingId, coordinates) {
+  'huntings.clueTry' (huntingId, coordinates) {
     if (!Meteor.user()) throw new Meteor.Error('You are not authorized')
-    let hunting = Huntings.find({_id: huntingId})
+    let hunting = Huntings.findOne({_id: huntingId})
+    if (!hunting) throw new Meteor.Error('Invalid hunting hunt')
+    let hunt = Hunts.findOne({_id: hunting.huntId})
+    if (!hunt) throw new Meteor.Error('Invalid hunting')
+    if (hunting.clues[2].done) throw new Meteor.Error('Hunting was already finished')
+    if (!(coordinates.lat || coordinates.lng)) throw new Meteor.Error('Invalid Coordinates')
+    let clueNumber
+    if (!hunting.clues[0].done) clueNumber = 0
+    else if (!hunting.clues[1].done) clueNumber = 1
+    else clueNumber = 2
+    if ((Math.abs(hunt.clues[clueNumber].lat - coordinates.lat) + Math.abs(hunt.clues[clueNumber].lng - coordinates.lng)) < 0.01) {
+      hunting.clues[clueNumber].done = true
+      if (clueNumber !== 2) hunting.clues[clueNumber + 1].message = hunt.clues[clueNumber + 1].message
+    } else throw new Meteor.Error('Wrong Answer')
+    return Huntings.update(hunting._id, hunting)
+  },
+  'huntings.hintAsk' (huntingId) {
+    if (!Meteor.user()) throw new Meteor.Error('You are not authorized')
+    let hunting = Huntings.findOne({_id: huntingId})
     if (!hunting) throw new Meteor.Error('Invalid hunting hunt')
     let hunt = Hunts.findOne({_id: hunting.huntId})
     if (!hunt) throw new Meteor.Error('Invalid hunting')
@@ -59,10 +77,9 @@ Meteor.methods({
     if (!hunting.clues[0].done) clueNumber = 0
     else if (!hunting.clues[1].done) clueNumber = 1
     else clueNumber = 2
-    if ((Math.abs(hunting.clues[clueNumber].coordinates.lat - coordinates.lat) + Math.abs(hunting.clues[clueNumber].coordinates.lng - coordinates.lng)) < 0.0001) {
-      hunting.clues[clueNumber].done = true
-      if (clueNumber !== 2) hunting.clues[clueNumber + 1].message = hunt.clues[clueNumber + 1].message
-      return Huntings.update(hunting._id, hunting)
-    }
+    if (hunting.clues[clueNumber].hint) throw new Meteor.Error('Hint already asked')
+    hunting.clues[clueNumber].hint = hunt.clues[clueNumber].hint
+    hunting.score = hunting.score - 20
+    return Huntings.update(hunting._id, hunting)
   }
 })
