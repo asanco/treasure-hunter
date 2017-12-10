@@ -35,7 +35,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={(props) => <Home />} />
             <Route path='/hunts' render={(props) => <Huntss user={this.props.user} hunts={this.props.hunts} newHunting={this.newHunting.bind(this)} {...props} />} />
-            <Route path='/hunters' render={(props) => <Hunters />} />
+            <Route path='/hunters' render={(props) => <Hunters scores={this.props.scores} />} />
             <Route path='/create' render={(props) => <CreateHunt createHunt={this.newHunt.bind(this)} {...props} />} />
             <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} hintAsk={this.hintAsk.bind(this)} clueTry={this.clueTry.bind(this)} />} />
           </Switch>
