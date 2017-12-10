@@ -30,20 +30,12 @@ Meteor.methods({
         huntId: huntId
       })
       if (hunting) return hunting._id
-      let choices = hunt.dummys
-      hunt.clues.forEach(clue => {
-        choices.push({lat: clue.lat, lng: clue.lng})
-      })
-      choices.sort((a, b) => {
-        return a.lat - b.lat
-      })
       return Huntings.insert({
         userId: Meteor.user()._id,
         huntId: huntId,
         clues: [{
           message: hunt.clues[0].message
         }, {}, {}],
-        choices: choices,
         score: 100
       })
     }
@@ -61,10 +53,17 @@ Meteor.methods({
     else if (!hunting.clues[1].done) clueNumber = 1
     else clueNumber = 2
     if ((Math.abs(hunt.clues[clueNumber].lat - coordinates.lat) + Math.abs(hunt.clues[clueNumber].lng - coordinates.lng)) < 0.01) {
+      hunting.clues[clueNumber].lat = hunt.clues[clueNumber].lat
+      hunting.clues[clueNumber].lng = hunt.clues[clueNumber].lng
       hunting.clues[clueNumber].done = true
       if (clueNumber !== 2) hunting.clues[clueNumber + 1].message = hunt.clues[clueNumber + 1].message
-    } else throw new Meteor.Error('Wrong Answer')
-    return Huntings.update(hunting._id, hunting)
+      Huntings.update(hunting._id, hunting)
+      return true
+    } else {
+      hunting.score -= 1
+      Huntings.update(hunting._id, hunting)
+      return false
+    }
   },
   'huntings.hintAsk' (huntingId) {
     if (!Meteor.user()) throw new Meteor.Error('You are not authorized')

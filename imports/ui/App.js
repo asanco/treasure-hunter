@@ -109,11 +109,17 @@ class App extends Component {
   }
 
   clueTry (coordinates) {
-    Meteor.call('huntings.clueTry', this.state.hunting._id, coordinates, (err) => {
+    Meteor.call('huntings.clueTry', this.state.hunting._id, coordinates, (err, ans) => {
       if (err) {
         swal(
           'Aargh!',
           err.error,
+          'error'
+        )
+      } else if (!ans) {
+        swal(
+          'Aargh!',
+          'Wrong Answer',
           'error'
         )
       } else {

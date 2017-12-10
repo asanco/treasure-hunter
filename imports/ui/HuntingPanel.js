@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Autocomplete from 'react-google-autocomplete'
 
 class HuntingPanel extends Component {
   renderClues () {
@@ -27,9 +28,14 @@ class HuntingPanel extends Component {
         <h3>Score: {this.props.hunting.score}</h3>
         <h3>Clues</h3>
         {this.renderClues()}
+        <Autocomplete
+          style={{width: '100%'}}
+          onPlaceSelected={(place) => {
+            this.props.selectClue({lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
+          }}
+        />
         {this.props.clue &&
         <div>
-          <h3>Selected Answer: {this.props.clue.lat},{this.props.clue.lng}</h3>
           <button type='button' className='btn btn-success' onClick={this.props.clueTry}>Try It</button>
         </div>
         }
