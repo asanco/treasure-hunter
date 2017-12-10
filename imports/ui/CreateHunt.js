@@ -70,7 +70,7 @@ class Create extends Component {
                 <div className='col-sm-10'>
                   <Autocomplete
                     placeholder='Enter the location of a city, town, establishment or street'
-                    types={['(cities)', 'point_of_interest']}
+                    types={['establishment', 'geocode']}
                     style={{width: '100%'}}
                     onPlaceSelected={(place) => {
                       this.setState({lat1: place.geometry.location.lat(), lng1: place.geometry.location.lng()})
@@ -104,7 +104,7 @@ class Create extends Component {
                     onPlaceSelected={(place) => {
                       this.setState({lat2: place.geometry.location.lat(), lng2: place.geometry.location.lng()})
                     }}
-                    types={['geocode']}
+                    types={['establishment', 'geocode']}
                   />
                 </div>
               </div>
@@ -134,7 +134,7 @@ class Create extends Component {
                     onPlaceSelected={(place) => {
                       this.setState({lat3: place.geometry.location.lat(), lng3: place.geometry.location.lng()})
                     }}
-                    types={['geocode']}
+                  types={['establishment', 'geocode']}
                   />
                 </div>
               </div>
