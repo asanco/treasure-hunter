@@ -1,81 +1,26 @@
 import React, { Component } from 'react'
-import { Session } from 'meteor/session'
-import GoogleMap from './GoogleMap'
-import Markers from './../api/markers'
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react'
 
-class MyMap extends Component {
-  constructor () {
-    super()
-    this.handleOnReady = this.handleOnReady.bind(this)
-  }
-
-  handleMapOptions () {
-    return {
-      center: new google.maps.LatLng(17.6078, 8.0817),
-      zoom: 2,
-      mapTypeId: google.maps.MapTypeId.HYBRID,
-      mapTypeControl: false
-    }
-  }
-
-  handleOnReady (name) {
-    GoogleMaps.ready(name, map => {
-      Tracker.autorun(c => {
-        google.maps.event.addListener(map.instance, 'click', function (event) {
-          Markers.insert({ lat: event.latLng.lat(), lng: event.latLng.lng() })
-        })
-
-        const markers = {}
-
-        Markers.find().observe({
-          added: function (document) {
-            const marker = new google.maps.Marker({
-              draggable: true,
-              animation: google.maps.Animation.DROP,
-              position: new google.maps.LatLng(document.lat, document.lng),
-              map: map.instance,
-              id: document._id
-            })
-
-            google.maps.event.addListener(marker, 'dragend', function (event) {
-              Markers.update(marker.id, {
-                $set: { lat: event.latLng.lat(), lng: event.latLng.lng() }
-              })
-            })
-
-            markers[document._id] = marker
-          },
-          changed: function (newDocument, oldDocument) {
-            markers[newDocument._id].setPosition({
-              lat: newDocument.lat,
-              lng: newDocument.lng
-            })
-          },
-          removed: function (oldDocument) {
-            markers[oldDocument._id].setMap(null)
-            google.maps.event.clearInstanceListeners(markers[oldDocument._id])
-            delete markers[oldDocument._id]
-          }
-        })
-        this.computation = c
-      })
+export class HuntingMap extends Component {
+  renderChoices () {
+    return this.props.hunting.choices.map((choice, i) => {
+      return (
+        <Marker
+          key={i}
+          position={choice}
+        />
+      )
     })
   }
-
-  componentWillUnmount () {
-    this.computation.stop()
-  }
-
   render () {
     return (
-      <GoogleMap
-        onReady={this.handleOnReady}
-        mapOptions={this.handleMapOptions}
-      >
-        Loading!
-      </GoogleMap>
+      <Map google={this.props.google} zoom={14}>
+        {this.renderChoices()}
+      </Map>
     )
   }
 }
 
-export default MyMap
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAGdNkCR-fFFr5A_NfR74M5DZ1ne7QL_UA'
+})(HuntingMap)
