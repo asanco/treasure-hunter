@@ -24,10 +24,10 @@ export class HuntingMap extends Component {
           <Polygon
             key={i}
             paths={clue.hints}
-            strokeColor='#0000FF'
+            strokeColor={i === 0 ? '#FF0000': i === 1 ? '#FFFF00' :'#00FF00'}
             strokeOpacity={0.8}
             strokeWeight={2}
-            fillColor='#0000FF'
+            fillColor= {i === 0 ? '#FF0000': i === 1 ? '#FFFF00' :'#00FF00'}
             fillOpacity={0.35}
           />
         )
