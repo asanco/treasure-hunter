@@ -7,6 +7,7 @@ import { Meteor } from 'meteor/meteor'
 import { withTracker } from 'meteor/react-meteor-data'
 import { Hunts } from '../api/hunts.js'
 import { Huntings } from '../api/huntings.js'
+import { Scores } from '../api/scores.js'
 
 import NavBar from './NavBar'
 
@@ -15,7 +16,6 @@ import Hunters from './Hunters'
 import Huntss from './Hunts'
 import Create from './Create'
 import Hunting from './Hunting'
-import Difficulty from './Difficulty'
 
 import './App.css'
 
@@ -39,7 +39,6 @@ class App extends Component {
             <Route path='/hunters' render={(props) => <Hunters />} />
             <Route path='/create' render={(props) => <Create createHunt={this.newHunt.bind(this)} {...props} />} />
             <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} />} />
-            <Route path='/difficulty' render={(props) => <Difficulty />} />
           </Switch>
         </main>
       </div>
@@ -61,16 +60,16 @@ class App extends Component {
     return Meteor.call('hunts.newHunt', hunt, (err) => {
       if (err) {
         swal(
-          'Oops...',
+          'Aargh!',
           err.error,
           'error'
         )
         cb(err)
       } else {
         swal(
-          'Message',
+          'Yo Ho Ho',
           'Hunt sucesfully created',
-          'info'
+          'success'
         )
         cb(null)
       }
@@ -81,13 +80,12 @@ class App extends Component {
     Meteor.call('huntings.newHunting', huntId, (err, huntingId) => {
       if (err) {
         swal(
-          'Oops...',
+          'Aargh!',
           err.error,
           'error'
         )
         cb(err)
       } else {
-        console.log(huntingId)
         this.setState({
           hunting: {
             _id: huntingId
@@ -102,10 +100,12 @@ class App extends Component {
 export default withTracker(() => {
   Meteor.subscribe('hunts')
   Meteor.subscribe('huntings')
+  Meteor.subscribe('scores')
 
   return {
     user: Meteor.user(),
     hunts: Hunts.find({}).fetch(),
-    huntings: Huntings.find({}).fetch()
+    huntings: Huntings.find({}).fetch(),
+    scores: Scores.find({}).fetch()
   }
 })(App)

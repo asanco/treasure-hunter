@@ -23,10 +23,11 @@ if (Meteor.isServer) {
 Meteor.methods({
   'hunts.newHunt' (hunt) {
     if (!Meteor.user()) throw new Meteor.Error('You are not authorized')
-    let clue1 = hunt.clue1.message && hunt.clue1.hint && hunt.clue1.lat && hunt.clue1.lng
-    let clue2 = hunt.clue2.message && hunt.clue2.hint && hunt.clue2.lat && hunt.clue2.lng
-    let clue3 = hunt.clue3.message && hunt.clue3.hint && hunt.clue3.lat && hunt.clue3.lng
-    if (!(hunt.name && hunt.difficulty && clue1 && clue2 && clue3)) throw new Meteor.Error('Must fill all fields')
+    if (!(hunt.name && hunt.difficulty)) throw new Meteor.Error('Must fill all fields')
+    if (!(hunt.difficulty === 'easy' || hunt.difficulty === 'medium' || hunt.difficulty === 'hard')) throw new Meteor.Error('Difficulty not valid')
+    hunt.clues.forEach((clue, i) => {
+      if (!(clue.message && clue.hint && clue.lat && clue.lng)) throw new Meteor.Error('Clue ' + i + ' is incomplete')
+    })
     let existent = Hunts.findOne({
       name: hunt.name
     })
@@ -44,11 +45,8 @@ Meteor.methods({
         _id: Meteor.user()._id
       },
       difficulty: hunt.difficulty,
-      clue1: hunt.clue1,
-      clue2: hunt.clue2,
-      clue3: hunt.clue3,
-      dummys: dummys,
-      ratings: []
+      clues: hunt.clues,
+      dummys: dummys
     })
   }
 })

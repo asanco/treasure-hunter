@@ -47,7 +47,7 @@ class Design extends Component {
               <img height='64' width='64' alt='Medium difficulty' src='../../pirate-1.png' />
             </div>
             <div className='col-sm-3 form-check form-check-inline'>
-              <input required className='form-check-input' type='radio' name='difficulty' value='hard' onChange={this.handleInputChange} checked={this.state.difficulty === 'hard'} />Easy
+              <input required className='form-check-input' type='radio' name='difficulty' value='hard' onChange={this.handleInputChange} checked={this.state.difficulty === 'hard'} />Hard
               <img height='64' width='64' alt='Hard difficulty' src='../../octopus.png' />
             </div>
           </div>
@@ -154,24 +154,23 @@ class Design extends Component {
     let hunt = {
       name: this.state.name,
       difficulty: this.state.difficulty,
-      clue1: {
+      clues: [{
         message: this.state.message1,
         hint: this.state.hint1,
         lat: this.state.lat1,
         lng: this.state.lng1
-      },
-      clue2: {
+      }, {
         message: this.state.message2,
         hint: this.state.hint2,
         lat: this.state.lat2,
         lng: this.state.lng2
-      },
-      clue3: {
+      }, {
         message: this.state.message3,
         hint: this.state.hint3,
         lat: this.state.lat3,
         lng: this.state.lng3
       }
+      ]
     }
     this.props.createHunt(hunt, (err) => {
       if (!err) this.props.history.push('hunts')
