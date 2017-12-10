@@ -12,15 +12,15 @@ class Welcome extends Component {
         <div className='col-sm-12'>
           <div className='row'>
             <div className='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-              <a href='#difficulty'><img height='64' width='64' alt='Ship icon for single player game' src='../../ship.png' /></a>
+              <a href='#hunts'><img height='128' width='128' alt='Ship icon for single player game' src='../../ship.png' /></a>
               <h4>Play a single player game</h4>
             </div>
             <div className='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-              <a href='#difficulty'><img height='64' width='64' alt='Clashing sabers icon for versus match' src='../../saber.png' /></a>
+              <a href='#hunts'><img height='128' width='128' alt='Clashing sabers icon for versus match' src='../../saber.png' /></a>
               <h4>Play a versus match</h4>
             </div>
             <div className='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-              <a href='#design'><img height='64' width='64' alt='Message in a bottle icon for creating your own treasure hunt' src='../../message-in-a-bottle.png' /></a>
+              <a href='#create'><img height='128' width='128' alt='Message in a bottle icon for creating your own treasure hunt' src='../../message-in-a-bottle.png' /></a>
               <h4>Create your own hunt</h4>
             </div>
           </div>

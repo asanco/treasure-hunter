@@ -24,7 +24,7 @@ export class HuntingMap extends Component {
           <Polygon
             key={i}
             paths={clue.hints}
-            strokeColor={i === 0 ? '#FF0000': i === 1 ? '#FFFF00' :'#00FF00'}
+            strokeColor= {i === 0 ? '#FF0000': i === 1 ? '#FFFF00' :'#00FF00'}
             strokeOpacity={0.8}
             strokeWeight={2}
             fillColor= {i === 0 ? '#FF0000': i === 1 ? '#FFFF00' :'#00FF00'}
@@ -43,6 +43,8 @@ export class HuntingMap extends Component {
             key={i}
             position={{lat: clue.lat, lng: clue.lng}}
             name={'Clue ' + i}
+            icon={ i === 0 ? {  url: "../../jolly-roger-red.png", anchor: new google.maps.Point(16,16), scaledSize: new google.maps.Size(32,32)}: i === 1 ? {url: "../../jolly-roger-yellow.png", anchor: new google.maps.Point(16,16), scaledSize: new google.maps.Size(32,32)}
+            :  {url: "../../jolly-roger-green.png", anchor: new google.maps.Point(16,16), scaledSize: new google.maps.Size(32,32)}}
           />
         )
       }
@@ -53,7 +55,8 @@ export class HuntingMap extends Component {
     return (
       <Map
         google={this.props.google} zoom={2}
-        style={{width: '50em', height: '25em', position: 'relative'}}
+        mapTypeId = {google.maps.MapTypeId.HYBRID}
+        style={{width: '50em', height: '30em', position: 'relative'}}
         initialCenter={{
           lat: 4.8047737,
           lng: -75.7487812
