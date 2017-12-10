@@ -174,12 +174,6 @@ class Create extends Component {
         lng: this.state.lng3
       }]
     }
-
-    geocodeByAddress(this.state.address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
-      .catch(error => console.error('Error', error))
-
     this.props.createHunt(hunt, (err) => {
       if (!err) this.props.history.push('hunts')
     })

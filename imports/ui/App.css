@@ -38,3 +38,15 @@ p, form {
 .huntingPanel {
   background-color: #dae3f3;
 }
+
+.clue0{
+  color : red;
+}
+
+.clue1{
+  color:yellow;
+}
+
+.clue2{
+  color:green;
+}

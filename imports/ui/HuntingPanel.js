@@ -10,7 +10,8 @@ class HuntingPanel extends Component {
             <div className='col-sm-3'>
               <h4>{i + 1}</h4>
             </div>
-            <div className='col-sm-9'>
+
+            <div className= { i=5 ? 'clue' + i : 'clue2'} >
               <h4>{clue.message}</h4>
               {clue.hint &&
               <h4>Hint: {clue.hint}</h4>
@@ -37,6 +38,7 @@ class HuntingPanel extends Component {
             onPlaceSelected={(place) => {
               this.props.selectClue({lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
             }}
+            types={['establishment', 'geocode']}
         />
         }
         {!this.props.hunting.clues[2].done && this.props.clue &&
