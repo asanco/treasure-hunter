@@ -25,7 +25,7 @@ class Hunters extends Component {
     }, {
       Header: 'Average',
       columns: [{
-        Header: '[ pts/huntin ]',
+        Header: '[ pts/hunting ]',
         accessor: 'average'
       }]
     }]
