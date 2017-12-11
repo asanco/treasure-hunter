@@ -19,13 +19,18 @@ body{
   padding-left: 2em;
   padding-right: 2em;
   background-color: #70ca79;
+  font-family: 'Acme';
 }
 
 .navbar-brand {
   font-size: 1.6em;
 }
 
-.navbar{
+.titles{
+ padding-left: 2em;
+}
+
+.headers{
   font-family: 'Acme';
 }
 
@@ -52,18 +57,31 @@ p, form {
 text-align: center;
 }
 
-.huntingPanel {
-  background-color: #dae3f3;
+.hunting{
+  padding-left: 3em;
 }
 
-.clue0{
-  color : red;
+.hunting-panel {
+  background-color: #dae3f3;
+  height: 32em;
 }
 
 .clue1{
-  color:yellow;
+  color :#cc0000;
 }
 
 .clue2{
-  color:green;
+  color:#ff9932;
+}
+
+.clue3{
+  color:#009900;
+}
+
+.score-txt{
+  padding-top: 0.5em;
+}
+
+.map-size{
+  padding-right: 1em;
 }

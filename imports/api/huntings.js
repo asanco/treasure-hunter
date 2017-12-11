@@ -80,7 +80,7 @@ Meteor.methods({
       if (clueNumber === 2) Meteor.call('scores.addScore', huntingId)
       return true
     } else {
-      hunting.score -= 1
+      hunting.score -= 5
       Huntings.update(hunting._id, hunting)
       return false
     }

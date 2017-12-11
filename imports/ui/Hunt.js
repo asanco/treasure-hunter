@@ -19,7 +19,7 @@ class Hunt extends Component {
   render () {
     return (
       <div className='col-sm-4 center' >
-        <h2>{this.props.hunt.name}</h2>
+        <h4>{this.props.hunt.name}</h4>
         <h5>By: {this.props.hunt.creator.username}</h5>
         <div>
           <h6>Difficulty: </h6>
@@ -34,7 +34,7 @@ class Hunt extends Component {
         <div>
           {this.props.user
             ? <button onClick={this.handleSubmit} className='btn btn-default'>Play</button>
-            : <h4>In order to start hunting you must be logged in</h4>
+            : <h5>In order to start hunting you must be logged in</h5>
           }
 
         </div>

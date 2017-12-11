@@ -19,7 +19,7 @@ class HuntList extends Component {
   render () {
     return (
       <div className='main'>
-        <h1>Hunts</h1>
+        <h2 className='headers'>Hunts</h2>
         <div className='row'>
           {this.renderHunts()}
         </div>

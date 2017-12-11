@@ -31,9 +31,11 @@ class Hunters extends Component {
     }]
 
     return (
-      <div>
-        <h1>Hunters</h1>
+      <div className='main'>
+        <h2 className='headers'>Hunters</h2>
+        <div className='center'>
         <ReactTable data={this.props.scores} columns={columns} defaultPageSize={20} showPageSizeOptions={false} className='table table-striped' />
+        </div>
       </div>
     )
   }

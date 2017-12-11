@@ -27,7 +27,8 @@ class Create extends Component {
   render () {
     return (
       <div className='main'>
-        <h1>Create a Hunt</h1>
+        <h2 className='headers'>Create a Hunt</h2>
+        <br/>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group row'>
             <label htmlFor='name' className='col-sm-2 col-form-label'>Name</label>
@@ -53,6 +54,19 @@ class Create extends Component {
           <div className='form-group row'>
             <label className='col-sm-2 col-form-label'>Clue 1</label>
             <div className='col-sm-10'>
+            <div className='form-group row'>
+              <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
+              <div className='col-sm-10'>
+                <Autocomplete
+                  placeholder='Enter the location of a city, town, establishment or street'
+                  types={['establishment', 'geocode']}
+                  style={{width: '100%'}}
+                  onPlaceSelected={(place) => {
+                    this.setState({lat1: place.geometry.location.lat(), lng1: place.geometry.location.lng()})
+                  }}
+                />
+              </div>
+            </div>
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
@@ -65,24 +79,24 @@ class Create extends Component {
                   <input required type='text' className='form-control' name='hint1' id='name' value={this.state.hint1} onChange={this.handleInputChange} />
                 </div>
               </div>
-              <div className='form-group row'>
-                <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
-                <div className='col-sm-10'>
-                  <Autocomplete
-                    placeholder='Enter the location of a city, town, establishment or street'
-                    types={['establishment', 'geocode']}
-                    style={{width: '100%'}}
-                    onPlaceSelected={(place) => {
-                      this.setState({lat1: place.geometry.location.lat(), lng1: place.geometry.location.lng()})
-                    }}
-                  />
-                </div>
-              </div>
             </div>
           </div>
           <div className='form-group row'>
             <label className='col-sm-2 col-form-label'>Clue 2</label>
             <div className='col-sm-10'>
+            <div className='form-group row'>
+              <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
+              <div className='col-sm-10'>
+                <Autocomplete
+                  placeholder='Enter the location of a city, town, establishment or street'
+                  style={{width: '100%'}}
+                  onPlaceSelected={(place) => {
+                    this.setState({lat2: place.geometry.location.lat(), lng2: place.geometry.location.lng()})
+                  }}
+                  types={['establishment', 'geocode']}
+                />
+              </div>
+            </div>
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
@@ -95,24 +109,24 @@ class Create extends Component {
                   <input required type='text' className='form-control' name='hint2' id='name' value={this.state.hint2} onChange={this.handleInputChange} />
                 </div>
               </div>
-              <div className='form-group row'>
-                <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
-                <div className='col-sm-10'>
-                  <Autocomplete
-                    placeholder='Enter the location of a city, town, establishment or street'
-                    style={{width: '100%'}}
-                    onPlaceSelected={(place) => {
-                      this.setState({lat2: place.geometry.location.lat(), lng2: place.geometry.location.lng()})
-                    }}
-                    types={['establishment', 'geocode']}
-                  />
-                </div>
-              </div>
             </div>
           </div>
           <div className='form-group row'>
             <label className='col-sm-2 col-form-label'>Clue 3</label>
             <div className='col-sm-10'>
+            <div className='form-group row'>
+              <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
+              <div className='col-sm-10'>
+                <Autocomplete
+                  placeholder='Enter the location of a city, town, establishment or street'
+                  style={{width: '100%'}}
+                  onPlaceSelected={(place) => {
+                    this.setState({lat3: place.geometry.location.lat(), lng3: place.geometry.location.lng()})
+                  }}
+                  types={['establishment', 'geocode']}
+                />
+              </div>
+            </div>
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
@@ -125,23 +139,10 @@ class Create extends Component {
                   <input required type='text' className='form-control' name='hint3' id='name' value={this.state.hint3} onChange={this.handleInputChange} />
                 </div>
               </div>
-              <div className='form-group row'>
-                <label htmlFor='name' className='col-sm-2 col-form-label'>Location</label>
-                <div className='col-sm-10'>
-                  <Autocomplete
-                    placeholder='Enter the location of a city, town, establishment or street'
-                    style={{width: '100%'}}
-                    onPlaceSelected={(place) => {
-                      this.setState({lat3: place.geometry.location.lat(), lng3: place.geometry.location.lng()})
-                    }}
-                    types={['establishment', 'geocode']}
-                  />
-                </div>
-              </div>
             </div>
           </div>
-          <div className='form-group row'>
-            <button type='submit' className='btn btn-secondary'>Create</button>
+          <div className='form-group row  create-btn'>
+            <button type='submit' className='btn btn-success'>Create</button>
           </div>
         </form>
       </div>

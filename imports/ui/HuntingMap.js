@@ -24,10 +24,10 @@ export class HuntingMap extends Component {
           <Polygon
             key={i}
             paths={clue.hints}
-            strokeColor={i === 0 ? '#FF0000' : i === 1 ? '#FFFF00' : '#00FF00'}
+            strokeColor={i === 0 ? '#7f0000' : i === 1 ? '#cc6600' : '#00FF00'}
             strokeOpacity={0.8}
             strokeWeight={2}
-            fillColor={i === 0 ? '#FF0000' : i === 1 ? '#FFFF00' : '#00FF00'}
+            fillColor={i === 0 ? '#cc0000' : i === 1 ? '#ff9932' : '#009900'}
             fillOpacity={0.35}
           />
         )
@@ -55,8 +55,7 @@ export class HuntingMap extends Component {
     return (
       <Map
         google={this.props.google} zoom={2}
-        mapTypeId={this.props.google.maps.MapTypeId.HYBRID}
-        style={{width: '50em', height: '30em', position: 'relative'}}
+        style={{width: '49.3em', height: '32em', position: 'relative'}}
         initialCenter={{
           lat: 4.8047737,
           lng: -75.7487812
