@@ -55,7 +55,7 @@ export class HuntingMap extends Component {
     return (
       <Map
         google={this.props.google} zoom={2}
-        style={{width: '49.3em', height: '32em', position: 'relative'}}
+        style={{width: '49.3em', height: '35em', position: 'relative'}}
         initialCenter={{
           lat: 4.8047737,
           lng: -75.7487812

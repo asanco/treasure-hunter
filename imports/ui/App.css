@@ -30,6 +30,10 @@ body{
  padding-left: 2em;
 }
 
+.hunt-ctn{
+  padding-bottom: 1em;
+}
+
 .headers{
   font-family: 'Acme';
 }
@@ -63,7 +67,7 @@ text-align: center;
 
 .hunting-panel {
   background-color: #dae3f3;
-  height: 32em;
+  height: 35em;
 }
 
 .clue1{

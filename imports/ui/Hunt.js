@@ -18,7 +18,7 @@ class Hunt extends Component {
 
   render () {
     return (
-      <div className='col-sm-4 center' >
+      <div className='col-sm-4 center hunt-ctn' >
         <h4>{this.props.hunt.name}</h4>
         <h5>By: {this.props.hunt.creator.username}</h5>
         <div>
