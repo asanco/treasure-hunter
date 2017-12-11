@@ -30,7 +30,7 @@ class Hunt extends Component {
             : <img height='64' width='64' alt='Hard difficulty' src='../../octopus.png' />
           }
         </div>
-        <h6>Rating: {this.props.hunt.rating !== -1 ? this.props.hunt.rating : 'Not rated yet'}</h6>
+        <h6>Rating: {this.props.hunt.rating !== -1 ? this.props.hunt.rating + '/4' : 'Not rated yet'}</h6>
         <div>
           {this.props.user
             ? <button onClick={this.handleSubmit} className='btn btn-default'>Play</button>
