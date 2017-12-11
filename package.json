@@ -18,5 +18,10 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-table": "^6.7.4"
+  },
+  "devDependencies": {
+    "chromedriver": "^2.33.2",
+    "faker": "^4.1.0",
+    "selenium-webdriver": "^3.6.0"
   }
 }

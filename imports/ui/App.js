@@ -37,7 +37,7 @@ class App extends Component {
             <Route path='/hunts' render={(props) => <Huntss user={this.props.user} hunts={this.props.hunts} newHunting={this.newHunting.bind(this)} {...props} />} />
             <Route path='/hunters' render={(props) => <Hunters scores={this.props.scores} />} />
             <Route path='/create' render={(props) => <CreateHunt createHunt={this.newHunt.bind(this)} {...props} />} />
-            <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} hintAsk={this.hintAsk.bind(this)} clueTry={this.clueTry.bind(this)} />} />
+            <Route path='/hunting' render={(props) => <Hunting hunting={this.state.hunting} hintAsk={this.hintAsk.bind(this)} clueTry={this.clueTry.bind(this)} huntRate={this.huntRate.bind(this)} />} />
           </Switch>
         </main>
       </div>
@@ -126,6 +126,17 @@ class App extends Component {
           'Yo Ho Ho',
           'Good Answer Pal',
           'success'
+        )
+      }
+    })
+  }
+  huntRate (rating) {
+    Meteor.call('hunts.rate', this.state.hunting.huntId, rating, (err) => {
+      if (err) {
+        swal(
+          'Aargh!',
+          err.error,
+          'error'
         )
       }
     })

@@ -56,7 +56,7 @@ class Create extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
-                  <input required type='text' className='form-control' name='message1' id='name' value={this.state.message1} onChange={this.handleInputChange} />
+                  <textarea rows='2' required type='text' className='form-control' name='message1' id='name' value={this.state.message1} onChange={this.handleInputChange} />
                 </div>
               </div>
               <div className='form-group row'>
@@ -86,7 +86,7 @@ class Create extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
-                  <input required type='text' className='form-control' name='message2' id='name' value={this.state.message2} onChange={this.handleInputChange} />
+                  <textarea rows='2' required type='text' className='form-control' name='message2' id='name' value={this.state.message2} onChange={this.handleInputChange} />
                 </div>
               </div>
               <div className='form-group row'>
@@ -116,7 +116,7 @@ class Create extends Component {
               <div className='form-group row'>
                 <label htmlFor='name' className='col-sm-2 col-form-label'>Message</label>
                 <div className='col-sm-10'>
-                  <input required type='text' className='form-control' name='message3' id='name' value={this.state.message3} onChange={this.handleInputChange} />
+                  <textarea rows='2' required type='text' className='form-control' name='message3' id='name' value={this.state.message3} onChange={this.handleInputChange} />
                 </div>
               </div>
               <div className='form-group row'>
@@ -134,7 +134,7 @@ class Create extends Component {
                     onPlaceSelected={(place) => {
                       this.setState({lat3: place.geometry.location.lat(), lng3: place.geometry.location.lng()})
                     }}
-                  types={['establishment', 'geocode']}
+                    types={['establishment', 'geocode']}
                   />
                 </div>
               </div>

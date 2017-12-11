@@ -30,7 +30,7 @@ class Hunting extends Component {
             <HuntingMap hunting={this.props.hunting} clue={this.state.clue} />
           </div>
           <div className='col-lg-5 col-md-5 col-sm-12 col-xs-12 huntingPanel'>
-            <HuntingPanel hunting={this.props.hunting} clue={this.state.clue} selectClue={this.selectClue.bind(this)} clueTry={this.clueTry.bind(this)} hintAsk={this.props.hintAsk} />
+            <HuntingPanel hunting={this.props.hunting} clue={this.state.clue} selectClue={this.selectClue.bind(this)} clueTry={this.clueTry.bind(this)} hintAsk={this.props.hintAsk} huntRate={this.props.huntRate} />
           </div>
         </div>
 

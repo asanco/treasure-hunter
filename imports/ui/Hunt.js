@@ -22,6 +22,7 @@ class Hunt extends Component {
         <h2>{this.props.hunt.name}</h2>
         <h5>By: {this.props.hunt.creator.username}</h5>
         <div>
+          <h6>Difficulty: </h6>
           {this.props.hunt.difficulty === 'easy'
             ? <img height='64' width='64' alt='Easy difficulty' src='../../starfish.png' />
             : this.props.hunt.difficulty === 'medium'
@@ -29,6 +30,7 @@ class Hunt extends Component {
             : <img height='64' width='64' alt='Hard difficulty' src='../../octopus.png' />
           }
         </div>
+        <h6>Rating: {this.props.hunt.rating !== -1 ? this.props.hunt.rating : 'Not rated yet'}</h6>
         <div>
           {this.props.user
             ? <button onClick={this.handleSubmit} className='btn btn-default'>Play</button>
