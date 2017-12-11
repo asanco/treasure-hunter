@@ -48,7 +48,8 @@ Meteor.methods({
     })
   },
   'hunts.rate' (huntId, rating) {
-    if (rating < 0 || rating > 4) throw new Meteor.Error('Rate not valid')
+    rating = Number(rating)
+    if (rating < 0 || rating > 4) throw new Meteor.Error('Rating not valid')
     if (!Meteor.user()) throw new Meteor.Error('You are not authorized')
     let hunt = Hunts.findOne({_id: huntId})
     if (!hunt) throw new Meteor.Error('Hunt does not exist')
