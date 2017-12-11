@@ -7,7 +7,7 @@ class NavBar extends Component {
     return (
       <div >
         <nav className='navbar sticky-top navbar-dark navbar navbar-expand-lg'>
-          <a href='#'><img height='64' width='64' alt='Website icon of a map' src='../../treasure-map.png' /></a>
+          <a href='#' className='navbar-img'><img height='50' width='50' alt='Website icon of a map' src='../../map-navbar.png' /></a>
           <a className='navbar-brand' href='#'>Treasure Hunter</a>
           <ul className='navbar-nav'>
             <AccountsUIWrapper />

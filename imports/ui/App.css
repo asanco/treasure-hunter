@@ -9,6 +9,11 @@ body{
   padding-top: 2em;
 }
 
+.navbar-img{
+ padding-left: 0.5em;
+ padding-right: 0.5em;
+}
+
 .navbar {
   font-size: 1.5em;
   padding-left: 2em;
@@ -20,13 +25,21 @@ body{
   font-size: 1.6em;
 }
 
-.navbar, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto';
+.navbar{
+  font-family: 'Acme';
 }
 
 p, form {
   font-family: 'Roboto';
   font-size: 1.2em
+}
+
+.img-icon{
+  padding-bottom: 1em;
+}
+
+.create-btn{
+ float: right;
 }
 
 .map-container {
@@ -36,7 +49,7 @@ p, form {
 }
 
 .center{
-text-align: center; 
+text-align: center;
 }
 
 .huntingPanel {
