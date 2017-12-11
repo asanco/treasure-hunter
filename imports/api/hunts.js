@@ -73,3 +73,5 @@ Meteor.methods({
     Huntings.update(hunting._id, hunting)
   }
 })
+
+//En todos los .js de esta carpeta, me pareció muy chevere que digan específicamente cual fue el error que se generó
