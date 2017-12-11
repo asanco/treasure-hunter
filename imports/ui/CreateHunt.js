@@ -26,7 +26,7 @@ class Create extends Component {
 
   render () {
     return (
-      <div>
+      <div className='main'>
         <h1>Create a Hunt</h1>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group row'>

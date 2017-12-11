@@ -35,6 +35,10 @@ p, form {
   height: 500px;
 }
 
+.center{
+text-align: center; 
+}
+
 .huntingPanel {
   background-color: #dae3f3;
 }

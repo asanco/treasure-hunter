@@ -18,9 +18,9 @@ class Hunt extends Component {
 
   render () {
     return (
-      <div className='col-sm-4' >
+      <div className='col-sm-4 center' >
         <h2>{this.props.hunt.name}</h2>
-        <h3>By: {this.props.hunt.creator.username}</h3>
+        <h5>By: {this.props.hunt.creator.username}</h5>
         <div>
           {this.props.hunt.difficulty === 'easy'
             ? <img height='64' width='64' alt='Easy difficulty' src='../../starfish.png' />
