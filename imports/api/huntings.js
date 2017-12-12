@@ -1,8 +1,17 @@
 import { Mongo } from 'meteor/mongo'
 import { Meteor } from 'meteor/meteor'
 import { Hunts } from './hunts.js'
+import { check } from "meteor/check";
+import SimpleSchema from "simpl-schema";
+
+const huntingSchema = new SimpleSchema({
+	userId: String,
+  huntId: String,
+})
 
 export const Huntings = new Mongo.Collection('huntings')
+
+
 
 if (Meteor.isServer) {
   Meteor.publish('huntings', function huntingssPublication () {
