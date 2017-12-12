@@ -155,3 +155,8 @@ export default withTracker(() => {
     scores: Scores.find({}).fetch()
   }
 })(App)
+
+
+//Comentario general: Me gustó mucho que se mostraran banderitas en el mapa luego de una respuesta acertada. Tambien se ve bien que las ventanitas, que salen cuando se genera error o se responde bien, sean dinámicas.
+// Sería chevere que existiera la posibilidad de añadir más pistas para encontrar el tesoro, es decir, que en el mismo formulario de creación, esté la opción de escribir más pistas.
+
