@@ -182,3 +182,6 @@ class Create extends Component {
 }
 
 export default Create
+
+/* Pudieran modularizar un poco las clases y agregar más componentes que hagan que el jsx no se vea tan grande y complicado. 
+Además, deberían separar los componentes de las vistas*/
