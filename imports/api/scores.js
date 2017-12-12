@@ -3,7 +3,8 @@ import { Meteor } from 'meteor/meteor'
 import { Hunts } from './hunts.js'
 import { Huntings } from './huntings.js'
 
-export const Scores = new Mongo.Collection('scores')
+// Camilo Alfonso: Exportar como default, así se evitan problemas.
+export default const Scores = new Mongo.Collection('scores')
 
 if (Meteor.isServer) {
   // this code only runs on the server
