@@ -139,3 +139,5 @@ describe('huntings', function () {
     })
   })
 })
+
+//Sería mejor tener un .test para cada archivo del back. La idea es tener todo un poco más modularizado.
