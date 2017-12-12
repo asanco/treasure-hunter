@@ -155,3 +155,6 @@ export default withTracker(() => {
     scores: Scores.find({}).fetch()
   }
 })(App)
+
+/* Muy bien que declaren los globals al inicio del App (y que hayan usado SweetAlert, es muy chevere). Además, muy bien que usen tracker en vez de container ya que esta deprecated.
+Me gusta que solo tengan los subscribe en la clase general.
