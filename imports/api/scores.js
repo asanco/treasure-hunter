@@ -70,3 +70,5 @@ if (Meteor.isServer) {
     }
   })
 }
+
+//En las ventanitas emergentes podrían poner el puntaje que se ganó o que se perdió
