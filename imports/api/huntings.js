@@ -86,3 +86,5 @@ Meteor.methods({
     }
   }
 })
+
+//Podrían poner checks en los métodos para asegurar que estén recibiendo lo que es
